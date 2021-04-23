@@ -2,22 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:bases_web/providers/counter_provider.dart';
-import 'package:bases_web/ui/shared/custom_app_menu.dart';
 import 'package:bases_web/ui/shared/custom_flat_button.dart';
 
 
-class CounterProviderPage extends StatelessWidget {
+class CounterProviderView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: ( _ ) => CounterProvider(),
-      child: _CounterProviderPageBody()
+      child: _CounterProviderPageView()
     );
   }
 }
 
-class _CounterProviderPageBody extends StatelessWidget {
+class _CounterProviderPageView extends StatelessWidget {
 
 
   @override
@@ -25,14 +24,9 @@ class _CounterProviderPageBody extends StatelessWidget {
 
     final counterProvider = Provider.of<CounterProvider>(context);
 
-    return Scaffold(
-      body: Column(
+    return Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-
-          CustomAppMenu(),
-
-          Spacer(),
 
           Text('Contador Provider', style: TextStyle( fontSize: 20 )),
           
@@ -63,9 +57,7 @@ class _CounterProviderPageBody extends StatelessWidget {
             ],
           ),
 
-          Spacer(),
         ],
-      ),
-    );
+      );
   }
 }
