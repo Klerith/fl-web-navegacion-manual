@@ -7,10 +7,17 @@ import 'package:bases_web/ui/shared/custom_flat_button.dart';
 
 class CounterProviderView extends StatelessWidget {
 
+  final String base;
+
+  const CounterProviderView({
+    Key? key, 
+    required this.base,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: ( _ ) => CounterProvider(),
+      create: ( _ ) => CounterProvider( this.base ),
       child: _CounterProviderPageView()
     );
   }
